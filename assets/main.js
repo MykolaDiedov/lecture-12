@@ -12,11 +12,11 @@ console.log(calc(7))
 console.log(calc(5))
 console.log(calc(10))
 
-const createCounter = function(start = 0, step = 1) {
+const createCounter = function(start, step) {
     let counter = start;
    
         return function(reset) { 
-            if (reset !== undefined) {
+            if (reset === 'resetCounter') {
                 counter = start;
             }
 
@@ -25,16 +25,19 @@ const createCounter = function(start = 0, step = 1) {
     
 };
 
-const fbLikes = createCounter();
-const instLikes = createCounter();
+const fbLikes = createCounter(0, 1);
+const instLikes = createCounter(0, 2);
 
 console.log('fb: ',fbLikes());
 console.log('fb: ',fbLikes());
 console.log('fb: ',fbLikes());
-console.log('fb: ',fbLikes());
-console.log('fb: ',fbLikes(0));
-console.log('fb: ',fbLikes());
+console.log('fb: ',fbLikes('resetCounter'));
 console.log('fb: ',fbLikes());
 console.log('fb: ',fbLikes());
+console.log('fb: ',fbLikes());
+console.log('fb: ',fbLikes());
+console.log('inst: ',instLikes());
+console.log('inst: ',instLikes());
+console.log('inst: ',instLikes());
 console.log('inst: ',instLikes());
 console.log('inst: ',instLikes());
